@@ -19,7 +19,7 @@ A função CPUIntensitve, como o nome diz, realiza um processamento intenso de C
 No terminal de execução do profiling, a tool pprof estará habilitada. Dessa forma, alguns comandos podem ser executados para identificar os pontos problemáticos no código.
 
 * <b>TOP</b>: Digite top n (ex: top 10 ou top 20) para visualizar os itens que mais gargalaram sua aplicação. Certamente, o main.fib estará entre os primeiros. Na imagem abaixo, é possível identificar que a função levou 37.42s para ser finalizada.
-![alt text](image.png)
+![alt text](images/top.png)
 
 * <b>LIST</b>: Se houver interesse em saber o quanto determinada função está gastando de CPU, é possível realizar buscas por Regex. A nível de exemplo, digite <b>list "regex"</b> (ex: list CPUIntensitve). Observe que o trecho de código "<u>result := fib(n)</u>" da minha função <u>main.CPUIntensitve</u> levou 37.54s para ser executado.
-![alt text](image-2.png)
+![alt text](images/list.png)
