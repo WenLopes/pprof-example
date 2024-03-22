@@ -11,12 +11,15 @@ import (
 
 func main() {
 	r := mux.NewRouter()
-	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello, World!"))
-	})
+	r.HandleFunc("/", http.HandlerFunc(hello))
 	r.Handle("/cpu", http.HandlerFunc(CPUIntensive))
+	r.Handle("/mem", http.HandlerFunc(MemoryIntensive))
 	go http.ListenAndServe(":8080", r)
 	http.ListenAndServe(":6060", nil)
+}
+
+func hello(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Hello, World!"))
 }
 
 func fib(n int) int {
